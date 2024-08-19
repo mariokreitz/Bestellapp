@@ -375,6 +375,16 @@ input[type="radio"]:checked + .optionsContainer {
   color: white;
 }
 
+#footer a {
+  margin-top: 16px;
+  margin-bottom: 8px;
+  color: white;
+}
+
+#footer a:hover {
+  text-decoration: underline;
+}
+
 .social-media-container {
   display: flex;
   gap: 32px;
