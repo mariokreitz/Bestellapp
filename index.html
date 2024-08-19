@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bestellapp</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="./styles/reset.css" />
+    <link rel="stylesheet" href="./styles/fonts.css" />
+    <link rel="stylesheet" href="./styles/assets.css" />
+    <link rel="stylesheet" href="./styles/basket.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script type="module" src="script.js"></script>
+  </head>
+  <body class="lato-regular">
+    <header id="header"></header>
+    <main>
+      <div id="content-wrapper">
+        <img id="main-food-bg" src="./assets/img/food.jpg" alt="Food background" />
+        <img id="main-noodle-box" src="./assets/img/noodle_box.png" alt="Noodle Box" />
+        <div id="main-header">
+          <div class="container">
+            <h1>Sakura Ramen</h1>
+            <h4>Lieferkosten: 2,00€</h4>
+            <h5>Öffnungszeiten:</h5>
+            <h6>Mo-Do 11:00 - 22:00</h6>
+            <h6>Fr-So 11:00 - 00:00</h6>
+            <p>
+              Bewertung (4,2)
+              <span>
+                <img class="main-rating" src="./assets/icons/star_filled.svg" alt="" />
+                <img class="main-rating" src="./assets/icons/star_filled.svg" alt="" />
+                <img class="main-rating" src="./assets/icons/star_filled.svg" alt="" />
+                <img class="main-rating" src="./assets/icons/star_filled.svg" alt="" />
+                <img class="main-rating" src="./assets/icons/star_empty.svg" alt=""
+              /></span>
+            </p>
+          </div>
+        </div>
+        <div id="category-slider">
+          <div class="slide-container">
+            <div id="category-content">
+              <div id="category"></div>
+            </div>
+          </div>
+        </div>
+        <button id="basektOpenBtn" class="lato-bold" type="button">&#128722; Warenkorb</button>
+        <div id="main-content" class="container"></div>
+      </div>
+      <div id="basket" class="basket">
+        <header id="basketHeader">
+          <h2>Warenkorb</h2>
+          <button id="basketCloseBtn" type="button">
+            <img class="basketImage" src="./assets/icons/x_close.svg" alt="close" />
+          </button>
+        </header>
+        <div id="deliverOption" class="hidden">
+          <label class="deliverOptions">
+            <input type="radio" checked name="option" />
+            <div class="optionsContainer">
+              <img class="basketImage" src="./assets/icons/deliver.svg" alt="deliver icon" />
+              <div class="deliverText">
+                <p>Lieferung</p>
+                <p>15-40 Minuten</p>
+              </div>
+            </div>
+          </label>
+          <label class="deliverOptions">
+            <input type="radio" name="option" />
+            <div class="optionsContainer">
+              <img class="basketImage" src="./assets/icons/persopn.svg" alt="pick up icon" />
+              <div class="deliverText">
+                <p>Abholung</p>
+                <p>15 Minuten</p>
+              </div>
+            </div>
+          </label>
+        </div>
+        <main id="basketContent"></main>
+      </div>
+    </main>
+    <footer id="footer"></footer>
+    <div id="successPayment" class="success hidden">
+      <h2>Bestellung erfolgreich gesendet</h2>
+      <p>Fenster schließt sich automatisch</p>
+    </div>
+  </body>
+</html>
