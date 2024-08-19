@@ -108,6 +108,7 @@ export function getFooterTemplate() {
             <img class="social-media-logos" src="./assets/icons/whatsapp-brands-solid.svg" alt="Whatsapp Logo"
           /></a>
         </div>
+        <a href="./impressum.html" target="_blank">Impressum</a>
       </div>
   `;
 }
