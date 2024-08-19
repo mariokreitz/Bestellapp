@@ -1,4 +1,4 @@
-# 📦 **Bestellapp** 🚀
+# 📦 **Bestellapp** 🚀 [![Netlify Status](https://api.netlify.com/api/v1/badges/7169dd03-1fbc-4bd0-b9c7-9b48e0576611/deploy-status)](https://app.netlify.com/sites/da-bestellapp/deploys)
 
 Willkommen zu **Bestellapp** – einem minimalistischen Klon der Lieferando-Startseite! 🍔🍕 Diese Webanwendung bietet eine einfache Benutzeroberfläche zum Durchstöbern von Menüs und Verwalten eines Warenkorbs. Alles gebaut mit HTML, CSS und reinem JavaScript, um eine reibungslose Benutzererfahrung zu gewährleisten.
 
