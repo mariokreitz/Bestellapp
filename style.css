@@ -3,6 +3,7 @@
   --bg-primary: #ffffff;
   --bg-menu: #f7f5f1;
   --bg-basket-button: #0069da;
+  --bg-basket-button-active: #167eee;
   --bg-card-hover: #fee5cb;
   --bg-footer: #3d3d3c;
   --menu-text: #737373;
@@ -135,7 +136,7 @@ main {
 
   #basektOpenBtn {
     left: unset;
-    right: 80px;
+    right: 0px;
   }
 
   #hamburger-menu {
