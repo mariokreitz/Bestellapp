@@ -150,13 +150,12 @@ a {
 
 #basektOpenBtn {
   position: fixed;
-  left: 0;
-  right: 0;
-  top: 91.5%;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 20px; /* Abstand vom unteren Rand des Viewports */
   height: 50px;
-  max-width: fit-content;
+  min-width: max-content;
   padding: 0 16px;
-  margin: auto;
   border: unset;
   border-radius: 9999px;
   background-color: var(--bg-basket-button);
@@ -167,7 +166,7 @@ a {
 }
 
 #basektOpenBtn:active {
-  transform: scale(0.975);
+  background-color: var(--bg-basket-button-active);
 }
 
 .basket {
