@@ -51,13 +51,13 @@ function loadFooter() {
 function loadDesktopBasket() {
   if (window.innerWidth <= 1024) return;
   addRadioButtonFunction();
-  addBasketButtonObserver();
   basketRef.classList.add("show");
   basektOpenBtn.innerHTML = `Bezahlen ${total.toLocaleString("de-DE", {
     style: "currency",
     currency: "EUR",
   })}`;
   getBasketFooterTemplate(subtotal, isDelivery ? DELIVERY_COSTS : FREE, total);
+  buttonScrollBehavior();
   isCheckout = true;
 }
 
@@ -345,27 +345,26 @@ function calculateTotal(event = null) {
 }
 /**############################################
  * #                                          #
- * #         BASKET BUTTON OBSERVER           #
- * #                                          #
+ * #           QUICK AN DIRTY                 #
+ * #       [BASKET DESKTOP BUTTON]            #
  * #                                          #
  * ############################################
  */
-function addBasketButtonObserver() {
-  document.addEventListener("scroll", function () {
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    const scrollThreshold = 200;
-    if (scrollTop === 0) basektOpenBtn.style.top = 91.5 + "%";
-    else if (scrollTop > scrollThreshold) {
-      const footer = document.querySelector("footer");
-      const footerTop = footer.getBoundingClientRect().top;
-      const viewportHeight = window.innerHeight;
-      const buttonTopPercentage = 165;
-      const buttonTopInPixels = (buttonTopPercentage / 100) * viewportHeight;
-      if (footerTop < viewportHeight) {
-        const offset = viewportHeight - footerTop;
-        // basektOpenBtn.style.top = `${Math.max(buttonTopInPixels, offset)}px`;
-        basektOpenBtn.style.top = `${buttonTopInPixels - offset}px`;
-      }
-    }
-  });
+function buttonScrollBehavior() {
+  window.addEventListener("scroll", adjustButtonPosition);
+  window.addEventListener("resize", adjustButtonPosition);
+
+  adjustButtonPosition();
+}
+
+function adjustButtonPosition() {
+  const button = document.getElementById("basektOpenBtn");
+  const footer = document.getElementById("footer");
+  const footerRect = footer.getBoundingClientRect();
+
+  if (footerRect.top < window.innerHeight) {
+    button.style.bottom = `${window.innerHeight - footerRect.top + 20}px`;
+  } else {
+    button.style.bottom = "20px";
+  }
 }
