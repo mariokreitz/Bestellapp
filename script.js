@@ -51,6 +51,7 @@ function loadFooter() {
 function loadDesktopBasket() {
   if (window.innerWidth <= 1024) return;
   addRadioButtonFunction();
+  addBasketButtonObserver();
   basketRef.classList.add("show");
   basektOpenBtn.innerHTML = `Bezahlen ${total.toLocaleString("de-DE", {
     style: "currency",
@@ -117,7 +118,7 @@ let counts = {};
 let basket = [];
 
 function addClickFunction() {
-  const menuRef = document.querySelectorAll(".menu");
+  const menuRef = document.querySelectorAll(".menu-btn");
   menuRef.forEach((menu, index) => menu.addEventListener("click", (event) => addToBasket(index, event)));
 }
 
@@ -341,4 +342,30 @@ function calculateTotal(event = null) {
       total = subtotal;
     } else total = subtotal + DELIVERY_COSTS;
   }
+}
+/**############################################
+ * #                                          #
+ * #         BASKET BUTTON OBSERVER           #
+ * #                                          #
+ * #                                          #
+ * ############################################
+ */
+function addBasketButtonObserver() {
+  document.addEventListener("scroll", function () {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const scrollThreshold = 200;
+    if (scrollTop === 0) basektOpenBtn.style.top = 91.5 + "%";
+    else if (scrollTop > scrollThreshold) {
+      const footer = document.querySelector("footer");
+      const footerTop = footer.getBoundingClientRect().top;
+      const viewportHeight = window.innerHeight;
+      const buttonTopPercentage = 165;
+      const buttonTopInPixels = (buttonTopPercentage / 100) * viewportHeight;
+      if (footerTop < viewportHeight) {
+        const offset = viewportHeight - footerTop;
+        // basektOpenBtn.style.top = `${Math.max(buttonTopInPixels, offset)}px`;
+        basektOpenBtn.style.top = `${buttonTopInPixels - offset}px`;
+      }
+    }
+  });
 }
